@@ -76,7 +76,10 @@ Go to ``` Administration >  Plugins > Redmine Gc Sync plugin : Configure ``` and
  so the title of the event will be like : ``` Event Title +  [Super project name] + issue subject + #issue id```
 
 
- The plugin add a google calendar field : go ```Administration > Roles and permissions ```
+ The plugin add a google calendar field : go ```Administration > Users > select a user``` 
+ This field will be used to invite assignee on the next section. 
+
+![gbfbgfbfgbf](https://cloud.githubusercontent.com/assets/7374923/12650204/33f42456-c5e2-11e5-8736-5af6b307ae57.png)
 
  # The plugin as a sync 
 
