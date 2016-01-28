@@ -10,7 +10,7 @@ This Redmine plugin have essencialy 3 roles:
 * Synchronize redmine Issues ( that obey the filters rule ) with your google calendar ( Issue must have a start date and a due date ). The plugin also add a field  on users account "google calendar mail", this field can be filled only by admin, so he can be invited to the event ( it will be shown on his google calendar ) if he is assigned to the issue. ( if the issue is assigned to a group , every memeber will be invited, if he have a google calendar mail)
 
 ================
-## Installation - Linux
+## Installation
 * Clone this repository into ```{REDMINE_ROOT}/plugins/```
 
 	``` git clone https://github.com/MYchaieb/redmine_gc_sync.git ```
@@ -75,4 +75,62 @@ Go to ``` Administration >  Plugins > Redmine Gc Sync plugin : Configure ``` and
  Note : The event Title in module ( if it is set ) is used as a prefix for this king of event creation. 
  so the title of the event will be like : ``` Event Title +  [Super project name] + issue subject + #issue id```
 
+
+ The plugin add a google calendar field : go ```Administration > Roles and permissions ```
+
  # The plugin as a sync 
+
+ After the configuration of the plugin, a filter part will appear : 
+
+ ![settt](https://cloud.githubusercontent.com/assets/7374923/12648860/2fbfd3ea-c5dc-11e5-9461-8c87704750df.png)
+
+ Note: if you don't select anything, nothing will be synchronized. 
+
+ Note: Only issue having start date and  due date will be synchronized. 
+
+ Let's go to out TEST PLUGIN issue. 
+
+ and add a due date then save the issue : 
+
+
+![dd](https://cloud.githubusercontent.com/assets/7374923/12648962/ba9128b6-c5dc-11e5-80f0-ce6ddae07eae.png)
+
+Let's take a look on the calendar : 
+
+![bgf](https://cloud.githubusercontent.com/assets/7374923/12649151/99d5d0bc-c5dd-11e5-8009-8e071d51fbed.png)
+
+We find the event of the issue 
+Note : Title of the event will include  ```[Super project name] + [ if exist : [ sub project ] + [ sub sub project ] + [etc ] ]+ issue subject + #issue id```
+
+Note: I've created a rake task to run just one time to synchronize all issues that repect the filter rule you configured 
+
+run this on the redmine root : 
+
+	```console
+	cd redmine/
+	rake gc_sync_tasks:exec RAILS_ENV="production"
+	```
+
+![ter](https://cloud.githubusercontent.com/assets/7374923/12649555/5e48cab6-c5df-11e5-8ccb-2dfee20c9139.png)
+
+
+
+Also, if you want to delelte all the synchornized Issues 
+
+run this on the redmine root : 
+
+	```console
+	cd redmine/
+	rake delete_gc:exec RAILS_ENV="production"
+	```
+
+![sssss](https://cloud.githubusercontent.com/assets/7374923/12649646/c3b5c3ea-c5df-11e5-9dd6-8c2521de2c92.png)
+
+
+## Uninstallation
+
+	```console
+	cd redmine/
+	rake redmine:plugins:migrate NAME=redmine_gc_sync VERSION=0 RAILS_ENV=production
+	```
+
