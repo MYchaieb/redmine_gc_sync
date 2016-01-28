@@ -44,6 +44,13 @@ Go to ``` Administration >  Plugins > Redmine Gc Sync plugin : Configure ``` and
 
  # The Plugin as a module 
 
+ * One you finished the plugin configuration, you can manage the module permission from ```Administration > Roles and permissions ```
+
+ * Add the module to the project 
+
+ ![image](https://cloud.githubusercontent.com/assets/7374923/12647767/265ec59a-c5d7-11e5-9238-8f5a52c6e313.png)
+
+
  # The plugin as a patch 
 
  # The plugin as a sync 

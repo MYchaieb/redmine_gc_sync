@@ -17,20 +17,6 @@ class LivrableProjectController < ApplicationController
 
   end
 
-  # def delete_event
-
-  #   p = params['livrable_project_event']
-  #   livrable = LivrableProjectEvent.find_by(:project_id => p[:project_id])
-
-  #   if livrable == nil 
-  #     flash[:error] = "evenement non trouvée"
-  #   else
-  #     livrable.destroy
-  #     flash[:notice] = "suppression avec succes"
-  #   end
-
-
-  # end
 
   def save_or_update_title 
     p = params['title_of_event']
@@ -87,10 +73,14 @@ class LivrableProjectController < ApplicationController
         log = create_log(livrable, p, updatedat)
       end
 
+      hir = "" 
+      if  p[:heure] != "" &&  p[:heure] != nil
+        hir = Time.parse(p[:heure]).strftime "%H:%M" 
+      end
       livrable.logs = log
       livrable.updated_at = updatedat
       livrable.description = p[:description]
-      livrable.heure = p[:heure]
+      livrable.heure = hir
       livrable.title = p[:title]
       livrable.delivery_date = p[:delivery_date]
 
@@ -136,14 +126,13 @@ class LivrableProjectController < ApplicationController
     heure = ''
 
     if livrable.heure != nil
-      heure = livrable.heure.strftime "%H:%M"
+      heure = livrable.heure
     end
 
     newheure = ''
     if params[:heure] != nil && params[:heure] != ""
       time =  Time.parse(params[:heure])
       newheure = time.strftime "%H:%M"
-      
     end
 
   	if heure != newheure

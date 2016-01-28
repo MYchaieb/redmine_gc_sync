@@ -3,8 +3,8 @@ class CreateLivrableProjectEvents < ActiveRecord::Migration
     create_table :livrable_project_events do |t|
     	t.column :project_id, :integer
     	t.column :event_id, :string
-    	t.column :delivery_date, :datetime
-    	t.column :heure, :time
+    	t.column :delivery_date, :string
+    	t.column :heure, :string
     	t.column :logs, :text
     	t.column :title, :text
     	t.column :description, :text

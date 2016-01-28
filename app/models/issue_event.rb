@@ -71,7 +71,7 @@ class IssueEvent < ActiveRecord::Base
 	      event = cal.find_or_create_event_by_id(self.event_id) do |e|
 	        e.title = title 
 	        e.start_time = Time.parse(issue.start_date.to_s) 
-	        e.end_time = Time.parse(issue.start_date.to_s) 
+	        e.end_time = Time.parse(issue.due_date.to_s) 
 	        e.description = issue_path 
 	        e.attendees = attendee
 	        e.visibility = 'private'
