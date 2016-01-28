@@ -106,10 +106,7 @@ Note: I've created a rake task to run just one time to synchronize all issues th
 
 run this on the redmine root : 
 
-	```console
-	cd redmine/
-	rake gc_sync_tasks:exec RAILS_ENV="production"
-	```
+	```rake gc_sync_tasks:exec RAILS_ENV="production"```
 
 ![ter](https://cloud.githubusercontent.com/assets/7374923/12649555/5e48cab6-c5df-11e5-8ccb-2dfee20c9139.png)
 
@@ -119,18 +116,12 @@ Also, if you want to delelte all the synchornized Issues
 
 run this on the redmine root : 
 
-	```console
-	cd redmine/
-	rake delete_gc:exec RAILS_ENV="production"
-	```
+	```rake delete_gc:exec RAILS_ENV="production"```
 
 ![sssss](https://cloud.githubusercontent.com/assets/7374923/12649646/c3b5c3ea-c5df-11e5-9dd6-8c2521de2c92.png)
 
 
 ## Uninstallation
 
-	```console
-	cd redmine/
-	rake redmine:plugins:migrate NAME=redmine_gc_sync VERSION=0 RAILS_ENV=production
-	```
+	```rake redmine:plugins:migrate NAME=redmine_gc_sync VERSION=0 RAILS_ENV=production```
 
