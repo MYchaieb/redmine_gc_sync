@@ -48,7 +48,13 @@ Go to ``` Administration >  Plugins > Redmine Gc Sync plugin : Configure ``` and
 
  * Add the module to the project 
 
+ So as an example: I added the module to a project and i created the event as shown below in the picture :
+
  ![image](https://cloud.githubusercontent.com/assets/7374923/12647767/265ec59a-c5d7-11e5-9238-8f5a52c6e313.png)
+
+ and then i want to my google calendar : I find this : 
+
+ ![image](https://cloud.githubusercontent.com/assets/7374923/12647911/d92ccdfc-c5d7-11e5-8ea7-0b09929eeeb5.png)
 
 
  # The plugin as a patch 
