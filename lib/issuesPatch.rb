@@ -9,6 +9,7 @@ module IssuePatchDeliveryDate
       safe_attributes :heure_delivery, :if => lambda {|issue, current_user| current_user.allowed_to?(:edit_delivery_date,issue.project)}
       before_save :regle_heure
 			after_save :save_to_google_calendar
+      # after_save :update_issue_event
 		end
 
 
@@ -49,6 +50,35 @@ module IssuePatchDeliveryDate
       return rep 
     end
 
+    def update_issue_event
+      
+
+      evo = IssueEvent.new 
+
+      if evo.calendar_ready 
+
+        event = IssueEvent.find_by(:issue_id => self.id)
+        if self.respect_filters || !self.respect_filters
+          if self.due_date != nil && self.due_date != ''
+
+            if event == nil 
+              event = IssueEvent.new
+            end
+            event.issue_id = self.id
+            event.project_id = self.project_id
+            begin
+
+              event.save
+            rescue
+            end
+              
+          end
+        end
+
+      end
+
+    end
+
     def save_to_google_calendar
 
       livrable_event = LivrableEvent.find_by(:issue_id => self.id)
@@ -83,6 +113,8 @@ module IssuePatchDeliveryDate
         end
 
       end
+      update_issue_event
+
 
     end
 
