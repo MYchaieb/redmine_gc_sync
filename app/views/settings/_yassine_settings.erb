@@ -1,0 +1,106 @@
+<% set = LivrableProjectEvent.new %>
+<% evo = IssueEvent.new %>
+<fieldset>
+<p>
+  <h2><%= l(:setup_instruction) %></h2>
+  <%= l(:uses_api) %>
+  <br/>
+   <%= l(:optain_confs) %> <a href="https://github.com/northworld/google_calendar#setup-" target="_blank"> <%= l(:here) %></a>
+</p>
+
+<br/>
+<br/>
+
+<% if set.canledar_settings_ready == true %> 
+<% if set.calendar_refres_token_ready == false %>
+  <%= l(:click_link) %>
+</br>
+
+  <% cal = Google::Calendar.new(:client_id => Setting.plugin_redmine_gc_sync['client_id'] , :client_secret => Setting.plugin_redmine_gc_sync['client_secret'] , :calendar => Setting.plugin_redmine_gc_sync['calendar_id'], :redirect_url => "urn:ietf:wg:oauth:2.0:oob") %> 
+  <a href=<%= cal.authorize_url %> class="button_to_have_refresh_code" target="_blank"> Link<a/>
+<% end %>
+<% else %>
+  <%= l(:fill_blanks) %>
+<% end %>
+
+<p>
+  <div class="save_again" style="display:none;">
+    <h2><%= l(:save_again) %></h2>
+  </div>
+</p>
+
+<p>
+  <%= content_tag(:label, l(:google_cliend_id)) %>
+  <%= text_field_tag 'settings[client_id]', @settings['client_id'], :size => 50 %>
+    <br/>
+  <%= content_tag(:label, l(:google_client_secret)) %>
+  <%= text_field_tag 'settings[client_secret]', @settings['client_secret'], :size => 50 %>
+     <br/>
+  <%= content_tag(:label, l(:google_calendar_id_for_global_livrable)) %>
+  <%= text_field_tag 'settings[calendar_id]', @settings['calendar_id'], :size => 50  %>
+   <br/>
+  <%= content_tag(:label, l(:google_calendar_id_for_task_livrable)) %>
+  <%= text_field_tag 'settings[calendar_task_id]', @settings['calendar_task_id'], :size => 50 %>
+  <br/>
+  <%= content_tag(:label, l(:google_calendar_id_for_task)) %>
+  <%= text_field_tag 'settings[calendar_tasks_id]', @settings['calendar_tasks_id'], :size => 50 %>
+  <% if Setting.plugin_redmine_gc_sync['refresh_token'] == '' %>
+    <br/>
+    <p class="connection_code_block">
+  <%= content_tag(:label, l(:google_connection_code) )%>
+  <%= text_field_tag 'settings[connection_code]', @settings['connection_code'], :size => 50 %>
+</p>
+<% end %>
+  <br/>
+  <p>
+  <%= content_tag(:label, 'refresh token') %>
+  <%= text_field_tag 'settings[refresh_token]', @settings['refresh_token'], :size => 50 %>
+</p>
+</p>
+
+<% if Setting.plugin_redmine_gc_sync['connection_code'] != ''  &&  Setting.plugin_redmine_gc_sync['refresh_token'] == ''%>
+<% begin %>
+<% refresh_t = refresh_token = cal.login_with_auth_code( Setting.plugin_redmine_gc_sync['connection_code'] ) %>
+
+<%= javascript_tag do %>
+
+
+$('#settings_refresh_token').val("<%= escape_javascript refresh_t %>");
+
+$('#settings_connection_code').val('');
+$('.connection_code_block').hide();
+$('.save_again').show();
+
+<% end %>
+<% rescue %>
+<h3> <%= l(:error_connection) %> </h3>
+<% end %>
+
+<% end %>
+
+</fieldset>
+
+<% if evo.calendar_ready %>
+</br>
+<fieldset>
+  <p>
+  <h2> <%= l(:filter_explain_text) %> </h2>
+</p>
+<p>
+
+
+
+  <%= content_tag(:label, l(:filter_trackers) )%>
+
+<%= select_tag 'settings[trackers][]' , options_for_select( Tracker.all.collect { |a| [a.name ,a.id]} ,@settings['trackers']), { :multiple => true, :size =>10 } %>
+
+</p>
+
+<p>
+  <%= content_tag(:label, l(:filter_status) )%>
+<%= select_tag 'settings[status][]' , options_for_select( IssueStatus.all.collect { |a| [a.name ,a.id]} ,@settings['status']), { :multiple => true, :size =>10 } %>
+
+  </p>
+</fieldset>
+
+  <% end %>

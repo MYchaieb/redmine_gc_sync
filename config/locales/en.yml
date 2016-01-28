@@ -1,0 +1,38 @@
+en: 
+  field_delivery_date: 'Delivery Date'
+  field_heure_delivery: 'Delivery Hour'
+  premission_view_delivery_date: 'View the delivery date'
+  permission_edit_delivery_date: 'Edit the delivery date'
+  field_google_cal_mail: 'Google Calendar mail adress'
+  field_heure: "Delivery Hour"
+  field_title: "Event Title"
+  field_description_event: "Event Description"
+  redmine_gc_sync: "Google Calendar Module"
+  evenement_cree: "Event have been successfully created"
+  create_global_event_project: "Create Project Delivery Event"
+  configure_title_ticket: "Event Title"
+  configure_title_ticket_description: "fghfghgh "
+  delete: "Delete"
+  google_calendar_id_for_global_livrable: "Google Calendar ID Global Delivery"
+  google_calendar_id_for_task_livrable: "Google Calendar ID Issue Delivery"
+  google_calendar_id_for_task: "Google Calendar ID Issues"
+  google_cliend_id: "Google Client ID"
+  google_client_secret: "Google Client Secret"
+  google_connection_code: "Connection Code"
+  setup_instruction: "Configuration Instruction"
+  fill_blanks: "Fill first you Cliend ID, Client Secret and Calendar IDs and the click on apply. A link will appear to have your connection code."
+  click_link: "Click on the link, you'll be redirected to a google page to autorise the app to communicate with your calendar. Copy and paste the code you'll find in connection code field and click on apply"
+  save_again: "You notice the refresh token field is filled. Click again on apply button to save all parametres. Plugin configuration is done like this."
+  uses_api: "This plugin uses this google calendar api"
+  optain_confs: "For more information about how to get the client id , client secret etc ... visit the git of the API "
+  here: "Here"
+  error_on_creating_event: "Error while creating event"
+  error_on_deleating_event: "Error while deleting event"
+  error_configuration: "Config error, if you are and admin, please see the plugin configuration"
+  module_livrable_project: "Google Calendar Project Module"
+  filter_part: "Issue filter "
+  filter_explain_text: "Select Trackers and Status concerned to be synchronized with the calendar"
+  title_saved: "Title Saved"
+  filter_trackers: "Tracker"
+  filter_status: "Status"
+  error_connection: "Google connection error, please change a new connection code"

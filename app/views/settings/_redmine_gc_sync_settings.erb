@@ -1,0 +1,28 @@
+<% set = PluginSettingClass.new %>
+
+<% if set.canledar_settings_ready == true %> 
+<% if set.calendar_refres_token_ready == false %>
+  <%= 'click on the link below to get your refresh token' %>
+
+  <% cal = Google::Calendar.new(:client_id => Setting.plugin_redmine_gc_sync['client_id'] , :client_secret => Setting.plugin_redmine_gc_sync['client_secret'] , :calendar => Setting.plugin_redmine_gc_sync['calendar_id'], :redirect_url => "urn:ietf:wg:oauth:2.0:oob") %> 
+  <a href=<%= cal.authorize_url %>> Link<a/>
+<% end %>
+<% else %>
+  <%= 'please Fill out the settings no need to fill the refresh token, after you save a link will appear click on it you will get the refresh' %>
+<% end %>
+
+<p>
+  <%= content_tag(:label, 'google client id') %>
+  <%= text_field_tag 'settings[client_id]', @settings['client_id'], :size => 50 %>
+    <br/>
+  <%= content_tag(:label, 'google client secret') %>
+  <%= text_field_tag 'settings[client_secret]', @settings['client_secret'], :size => 50 %>
+     <br/>
+  <%= content_tag(:label, 'google calendar id') %>
+  <%= text_field_tag 'settings[calendar_id]', @settings['calendar_id'], :size => 50 %>
+    <br/>
+  <%= content_tag(:label, 'refresh token') %>
+  <%= text_field_tag 'settings[refresh_token]', @settings['refresh_token'], :size => 50 %>
+
+
+</p>

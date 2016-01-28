@@ -1,0 +1,38 @@
+fr: 
+  field_delivery_date: 'Date de livraison'
+  field_heure_delivery: 'Heure de livraison'
+  premission_view_delivery_date: 'Voir la date de livraison'
+  permission_edit_delivery_date: 'Gérer la date de livraison'
+  field_google_cal_mail: 'Adresse mail Google Calendar'
+  field_heure: "Heure de livraison"
+  field_title: "Titre de l'évènement"
+  field_description_event: "Description de l'évènement"
+  redmine_gc_sync: "Google Calendar Module"
+  evenement_cree: "l'evenement a été créé avec succes"
+  create_global_event_project: "Créer l'évènement Livraison de projet"
+  configure_title_ticket: "Titre de l'évènement"
+  configure_title_ticket_description: "fghfghgh "
+  delete: "Supprimer"
+  google_calendar_id_for_global_livrable: "Google Calendar ID Global Livrable"
+  google_calendar_id_for_task_livrable: "Google Calendar ID Tache Livrable"
+  google_calendar_id_for_task: "Google Calendar ID Taches"
+  google_cliend_id: "Google Client ID"
+  google_client_secret: "Google Client Secret"
+  google_connection_code: "Code de Connection"
+  setup_instruction: "Instruction de configuration"
+  fill_blanks: "Remplisser d'abord votre Cliend ID, Client Secret et les Calendar IDs et puis appuiez sur Appliquier. Un lien apparaitra pour avoir un code de connection."
+  click_link: "Cliquiez sur le lien suivant, vous allez ètre rediriger vers une page google pour autoriser l'application à communiquer avec votre calendrier. Copiez le code que vous allez trouver dans le champ Code de connection et enfin cliquez sur appliquer"
+  save_again: "Vous remarquez que le champ refresh token est bien remplit, appuis de nouveau sur appliquier pour enregistrer tout les paramètres. Comme ça nous avons terminé la configuration du plugin."
+  uses_api: "Ce plugin utilise l'api google calendar"
+  optain_confs: "Pour plus d'information comment avoir le client id , client secret etc ... visiter le depot gihub de l'api "
+  here: "ici"
+  error_on_creating_event: "Erreur lors de la création de l'évenement."
+  error_on_deleating_event: "Erreur lors de la suppression de l'évenement."
+  error_configuration: "Erreur de configuration, Si vous êtes administrateur veuillez revoir la configuration du plugin."
+  module_livrable_project: "Google Calendar Project Module"
+  filter_part: "Filtre des tache à synchroniser"
+  filter_explain_text: "Selectionnez les Trackers et les Statuts concernés par les taches à synchroniser avec google calendar"
+  title_saved: "Titre enregistré"
+  filter_trackers: "Tracker"
+  filter_status: "Statut"
+  error_connection: "erreur de connection google , changer un nouveau connection code"

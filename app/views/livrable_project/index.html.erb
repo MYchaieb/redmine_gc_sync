@@ -1,0 +1,48 @@
+
+<h2><%= l(:configure_title_ticket) %></h2>
+
+<%= form_for @title_of_event, :url => {:action => 'save_or_update_title'}, :html => {:method => 'post'} do |f| %>
+<p><%= f.hidden_field :project_id, { :value => @project.id } %></p>
+<p><b> <%= l(:field_title) %></b> <%= f.text_field :title_event %>  </p>
+<p><%= f.submit l(:save) %></p>
+<% end %>
+
+
+
+<h2><%= l(:create_global_event_project) %> </h2>
+
+<%= form_for @livrable, :url => {:action => 'update_livrable_date'}, :html => {:method => 'post'} do |f| %>
+<p><%= f.hidden_field :project_id, { :value => @project.id } %></p>
+<p><b> <%= l(:field_title) %></b> <%= f.text_field :title %>  </p>
+<p><b> <%= l(:field_delivery_date) %> </b> <%= f.date_field :delivery_date %> <%= f.time_field :heure %> </p>
+<p><b><%= l(:field_description_event) %></b></p>
+<p><%= f.text_area(:description ,class: 'DescriptionEvent' ) %></p>
+<p><%= f.submit l(:save) %></p>
+
+
+<% end %>
+
+<% if @livrable.event_id != nil %>
+<%= form_for @livrable, :url => {:action => 'delete_event'}, :html => {:method => 'post'} do |f| %>
+<p><%= f.hidden_field :project_id, { :value => @project.id } %></p>
+<p><%= f.submit l(:delete) %></p>
+<% end %>
+<% end %>
+
+<h4> Logs </h4><br/>
+<textarea class="logsArea"><%=@livrable.logs %></textarea>
+<style>
+.logsArea{
+
+	width: 500px;
+	min-height: 200px;
+}
+
+.DescriptionEvent{
+
+	width: 350px;
+	min-height: 120px
+}
+</style>
+
+
