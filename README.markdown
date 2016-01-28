@@ -13,11 +13,13 @@ This Redmine plugin have essencialy 3 roles:
 ## Installation - Linux
 * Clone this repository into ```{REDMINE_ROOT}/plugins/```
 
+	``` git clone https://github.com/MYchaieb/redmine_gc_sync.git ```
+
 * Install dependencies and migrate database
 	```console
 	cd redmine/
 	bundle install
-	RAILS_ENV=production rake redmine:plugins:migrate
+	rake redmine:plugins:migrate RAILS_ENV=production
 	```
 * Restart your Redmine web server 
 	```console 
@@ -58,5 +60,19 @@ Go to ``` Administration >  Plugins > Redmine Gc Sync plugin : Configure ``` and
 
 
  # The plugin as a patch 
+
+ The plugin add the two field for each issue ( you can manage the permission for view and edit these field from admin pannel)
+
+ See example below 
+ ![patch issue](https://cloud.githubusercontent.com/assets/7374923/12648477/720e758c-c5da-11e5-8947-a3ba458ceff6.png)
+
+ When you click on submit the evnt is created on the calendar : 
+
+ ![cerrrf](https://cloud.githubusercontent.com/assets/7374923/12648522/b21be7cc-c5da-11e5-9c5c-3f760b5b7288.png)
+
+ Title of the event will include  ```[Super project name] + issue subject + #issue id```
+
+ Note : The event Title in module ( if it is set ) is used as a prefix for this king of event creation. 
+ so the title of the event will be like : ``` Event Title +  [Super project name] + issue subject + #issue id```
 
  # The plugin as a sync 
