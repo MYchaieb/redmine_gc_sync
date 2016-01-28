@@ -26,7 +26,7 @@ This Redmine plugin have essencialy 3 roles:
 
 ## Plugin Configuration
 
-* Go to ``` Administration >  Plugins > Redmine Gc Sync plugin : Configure ``` and follow the steps. 
+Go to ``` Administration >  Plugins > Redmine Gc Sync plugin : Configure ``` and follow the steps. 
 
 ### Obtain a Client ID and Secret  
  1. Go to the [GOOGLE DEVELOPPERS CONSOLE](https://console.developers.google.com/).
@@ -41,3 +41,9 @@ This Redmine plugin have essencialy 3 roles:
  2. In the calendar list on the left, click the down-arrow button next to the appropriate calendar, then select Calendar settings.
  3. In the Calendar Address section, locate the Calendar ID listed next to the XML, ICAL and HTML buttons.
  4. Copy the Calendar ID.
+
+ # The Plugin as a module 
+
+ # The plugin as a patch 
+
+ # The plugin as a sync 
