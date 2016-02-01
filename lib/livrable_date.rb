@@ -32,14 +32,14 @@ class InsertchampsIssue < Redmine::Hook::ViewListener
 	def view_issues_show_details_bottom(context = {})
 		date = ''
 
-		if context[:issue].delivery_date != nil
+		if context[:issue].delivery_date != nil && context[:issue].delivery_date != ""
 
 			date = format_date(context[:issue].delivery_date)
 		end	
 
 		hi = ''
 
-		if context[:issue].heure_delivery != nil
+		if context[:issue].heure_delivery != nil && context[:issue].heure_delivery != ""
 			time = context[:issue].heure_delivery
 			hi = time
 
