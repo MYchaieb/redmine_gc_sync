@@ -10,7 +10,7 @@ require_dependency 'user_gc_mail'
 
 require_dependency 'houre_patch'
 
-ActionDispatch::Callbacks.to_prepare do
+ActiveSupport::Reloader.to_prepare do
 	require_dependency 'issue'
   require_dependency 'user'
 	Issue.send(:include, IssuePatchDeliveryDate)
