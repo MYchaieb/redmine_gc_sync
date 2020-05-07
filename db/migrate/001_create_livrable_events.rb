@@ -1,4 +1,4 @@
-class CreateLivrableEvents < ActiveRecord::Migration
+class CreateLivrableEvents < ActiveRecord::Migration[5.0]
   def self.up
     create_table :livrable_events do |t|
     	t.column :project_id, :integer
